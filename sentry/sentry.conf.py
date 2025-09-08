@@ -102,10 +102,10 @@ SENTRY_SELF_HOSTED_ERRORS_ONLY = env("COMPOSE_PROFILES") != "feature-complete"
 # Generic Redis configuration used as defaults for various things including:
 # Buffers, Quotas, TSDB
 
-SENTRY_OPTIONS["redis.clusters"] = {
-    "default": {
-        "hosts": {0: {"host": "redis", "password": "", "port": "6379", "db": "0"}}
-    }
+SENTRY_OPTIONS["redis.clusters"] = {  
+    "default": {  
+        "hosts": {0: {"host": env("REDIS_HOST", "redis"), "password": "", "port": "6379", "db": "0"}}  
+    }  
 }
 
 #########
